@@ -1,6 +1,6 @@
 import { kategorie_glowne } from 'src/utility'
+import { MainCategoryItem } from './MainCategoryItem'
 import styles from './MainCategory.module.scss'
-import MainCategoryItem from './MainCategoryItem/MainCategoryItem'
 
 export function MainCategory() {
   return (

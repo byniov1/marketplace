@@ -5,7 +5,7 @@ interface MainCategoryItem{
   description: string;
 }
 
-export default function MainCategoryItem({imagePath, description}: MainCategoryItem) {
+export function MainCategoryItem({imagePath, description}: MainCategoryItem) {
   return (
     <div className={styles.MainCategoryItem}>
       <img className = {styles.MainCategoryItem__image} src={imagePath} alt = {description}/>
