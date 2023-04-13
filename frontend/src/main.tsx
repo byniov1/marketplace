@@ -4,6 +4,8 @@ import { HomePage } from './components/pages/homepage'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <HomePage />
+    <div style={{backgroundColor: '#F2F4F5'}}>
+      <HomePage />  
+    </div>
   </React.StrictMode>,
 )
