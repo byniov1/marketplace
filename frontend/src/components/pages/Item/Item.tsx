@@ -1,11 +1,5 @@
+import { ItemI } from 'src/utility'
 import styles from './Item.module.scss'
-
-export interface ItemI {
-  imagePaths: string[];
-  name: string;
-  price: number;
-  description: string;
-}
 
 export function Item({imagePaths, name, price, description}: ItemI) {
   return (

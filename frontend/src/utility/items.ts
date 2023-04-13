@@ -1,4 +1,4 @@
-import { ItemI } from "src/components/pages/Item";
+import { ItemI } from "./ItemInteface";
 
 
 export const items: ItemI[] = [
