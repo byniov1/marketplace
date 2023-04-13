@@ -1,0 +1,1 @@
+export * from './kategorie_główne'

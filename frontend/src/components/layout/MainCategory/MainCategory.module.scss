@@ -1,0 +1,19 @@
+.main{
+    width: 1024px;
+    margin: 0 auto;
+
+    &__category{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__title{
+        text-align: center;
+    }
+
+    &__item{
+        margin: 10px;
+        display: flex;
+    }
+}
+
