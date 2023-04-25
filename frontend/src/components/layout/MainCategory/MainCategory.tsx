@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { CategoryEntity } from 'types'
 
 import styles from './MainCategory.module.scss'
+import { fetchCategories } from 'src/utility/fetch';
 
 export interface CategoryEntityExtended extends CategoryEntity {
   to: string;
@@ -12,14 +13,10 @@ export interface CategoryEntityExtended extends CategoryEntity {
 export function MainCategory() {  
   const [categories, setCategories] = useState([])
 
-  const fetchCategories = async () => {
-    const response = await fetch('http://localhost:9001/cat')
-    const data = await response.json()
-    setCategories(data)
-  }
-
   useEffect(() => {
-    fetchCategories();
+    console.log('UseEffect MainCategory');
+    
+    fetchCategories(setCategories);
   }, [])
   
   if(categories.length === 0){

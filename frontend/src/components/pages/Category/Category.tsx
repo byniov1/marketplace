@@ -2,21 +2,22 @@ import {ItemI, items} from 'src/utility'
 import { CategoryItem } from './CategoryItem'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { fetchCategories } from 'src/utility/fetch';
 
 export function Category() {
   const [items, setItems] = useState([]);
   const {category} = useParams()
   // console.log(category);
   
-  const fetchProducsts  = async () => {
-    const response = await fetch(`http://localhost:9001/cat/${category}`)
-    const data = await response.json()
-    setItems(data)
-    console.log(data);
-  }
+  // const fetchProducsts  = async () => {
+  //   const response = await fetch(`http://localhost:9001/cat/${category}`)
+  //   const data = await response.json()
+  //   setItems(data)
+  //   console.log(data);
+  // }
 
   useEffect(() => {
-    fetchProducsts();
+    fetchCategories(setItems,category);
   }, [])
 
   if(items.length === 0){

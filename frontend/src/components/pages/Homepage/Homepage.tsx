@@ -12,7 +12,7 @@ export const HomePage = () => {
       <Routes>
         <Route path = '/' element = {<MainCategory />}/>
         <Route path = '/:category' element = {<Category/> }/>
-        <Route path = '/product/:id' element = {<Item />}/>
+        <Route path = '/product/:product_id' element = {<Item />}/>
       </Routes>
 
       {/* {items.map((curr, index) => 
