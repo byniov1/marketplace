@@ -7,14 +7,6 @@ import { fetchCategories } from 'src/utility/fetch';
 export function Category() {
   const [items, setItems] = useState([]);
   const {category} = useParams()
-  // console.log(category);
-  
-  // const fetchProducsts  = async () => {
-  //   const response = await fetch(`http://localhost:9001/cat/${category}`)
-  //   const data = await response.json()
-  //   setItems(data)
-  //   console.log(data);
-  // }
 
   useEffect(() => {
     fetchCategories(setItems,category);

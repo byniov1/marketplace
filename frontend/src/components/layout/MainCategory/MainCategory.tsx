@@ -13,9 +13,7 @@ export interface CategoryEntityExtended extends CategoryEntity {
 export function MainCategory() {  
   const [categories, setCategories] = useState([])
 
-  useEffect(() => {
-    console.log('UseEffect MainCategory');
-    
+  useEffect(() => {    
     fetchCategories(setCategories);
   }, [])
   
@@ -33,7 +31,9 @@ export function MainCategory() {
               key={category.id}
               name={category.name}
               to={category.name}
-              imagePath='https://categories.olxcdn.com/assets/categories/olxpl/motoryzacja-5-2x.png' id={''}            />
+              imagePath='https://categories.olxcdn.com/assets/categories/olxpl/motoryzacja-5-2x.png' 
+              id={''}
+            />
           ))
         }
       </ul>

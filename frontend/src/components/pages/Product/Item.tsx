@@ -14,14 +14,6 @@ export interface ItemI {
 export function Item() {
   const [product, setProduct] = useState<ItemI[] | null>(null)
   const {product_id} = useParams()
-  
-  // const fetchProduct = async () => {
-  //   const response = await fetch(`http://localhost:9001/product/${id}`)
-  //   const data = await response.json()
-  //   console.log('Item', data);
-    
-  //   setProduct(data)
-  // }
 
   useEffect(() => {
     console.log('UseEffect Item');
