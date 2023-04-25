@@ -1,13 +1,16 @@
-import { MainCategory } from 'src/components/layout/MainCategory'
+
 import { Item } from 'src/components/pages/Product'
 import styles from './Homepage.module.scss'
 
 import { items } from 'src/utility'
 import { Category } from 'src/components/pages/Category'
 import { Route, Routes } from 'react-router-dom'
+import { Header, MainCategory } from 'src/components/layout'
 
 export const HomePage = () => {
   return (
+    <>
+    <Header /> 
     <div className={styles.main}>
       <Routes>
         <Route path = '/' element = {<MainCategory />}/>
@@ -25,7 +28,8 @@ export const HomePage = () => {
       <p>Kategorie Głowne</p>
       <p>Ogłoszenia Promowane</p>
       <p>Footer</p> 
-      */}
+    */}
     </div>
+    </>
   )
 }
