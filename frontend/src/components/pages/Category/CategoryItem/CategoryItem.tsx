@@ -3,17 +3,24 @@ import styles from './CategoryItem.module.scss'
 
 type CategoryItem = Omit<ItemI, 'description'>
 
-export function CategoryItem({imagePaths, name, price}: CategoryItem) {
+export function CategoryItem({imagePaths, product_name, price, description}: ItemI) {
+  if(description.length > 300){
+    description = description.slice(0,300);
+  }
+  
   return (
-    <div>
-      <h1>CategoryItem</h1>
+    <>
       <div className= {`${styles.whiteBackground} ${styles.item}`}>
         <img className = {styles.item__image} src={imagePaths[0]} alt="" />
+        
+        
         <div className={styles.information}>
-          <p className={styles.information__name}> {name}</p>
-          <p className={styles.information__price}> {price}</p>
+          <p className={styles.name}> {product_name}</p>
+          <p className={styles.name}> {description}</p>
         </div>
+        
+        <p className={styles.information__price}> {price}</p>
       </div>
-    </div>
+    </>
   )
 }

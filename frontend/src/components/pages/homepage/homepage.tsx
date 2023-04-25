@@ -4,15 +4,19 @@ import styles from './homepage.module.scss'
 
 import { items } from 'src/utility'
 import { Category } from 'src/components/pages/Category'
+import { Route, Routes } from 'react-router-dom'
 
 export const HomePage = () => {
   return (
     <div className={styles.main}>
-      <MainCategory />
-      {items.map((curr, index) => 
+      <Routes>
+        <Route path = '/' element = {<MainCategory />}/>
+        <Route path = '/:category' element = {<Category/> }/>
+      </Routes>
+
+      {/* {items.map((curr, index) => 
         <Item key = {index} imagePaths={curr.imagePaths} name={curr.name} price={curr.price} description={curr.description} />
-      )}
-      <Category/>
+      )} */}
       {/* 
       <p>HomePage</p>  
       <p>Navigacja</p>
