@@ -1,7 +1,35 @@
-import { ItemI } from 'src/utility'
+import { useEffect, useState } from 'react';
 import styles from './Item.module.scss'
+import { useParams } from 'react-router-dom';
 
-export function Item({imagePaths, name, price, description}: ItemI) {
+export interface ItemI {
+  id?: string
+  product_name: string;
+  description: string;
+  price: number;
+}
+
+export function Item() {
+  const [product, setProduct] = useState<ItemI[] | null>(null)
+  const {id} = useParams()
+  
+  const fetchProduct = async () => {
+    const response = await fetch(`http://localhost:9001/product/${id}`)
+    const data = await response.json()
+    console.log('Item', data);
+    
+    setProduct(data)
+  }
+
+  useEffect(() => {
+    fetchProduct();
+  }, [])
+
+  if(product === null){
+    return <h1>Loading...</h1>
+  }
+
+
   return (
     <div className= {styles.item}>
       <h1>Item</h1>
@@ -9,15 +37,15 @@ export function Item({imagePaths, name, price, description}: ItemI) {
       
       {/* Karuzela */}
       <div className={`${styles.carousel} ${styles.whiteBackground}`}>
-        <img className = {styles.carousel__image} src={imagePaths[0]} alt="fdafds" />
+        <img className = {styles.carousel__image} src={'https://ireland.apollo.olxcdn.com/v1/files/hpo734e1ubc02-PL/image;s=1000x700'} alt="fdafds" />
       </div>
       
       {/* Opis */}
       <div className={`${styles.information} ${styles.whiteBackground}`}>
-        <h2>{name}</h2>
-        <h3> {price} zł</h3>
+        <h2>{product[0].product_name}</h2>
+        <h3> {product[0].price} zł</h3>
         <hr />
-        <p>{description}</p>
+        <p>{product[0].description}</p>
       </div>
 
     </div>

@@ -28,7 +28,8 @@ export function Category() {
       {
         items.map( (item : ItemI)=> (
         <CategoryItem 
-          key = {item.id}
+          key = {item.product_id}
+          product_id = {item.product_id}
           product_name={item.product_name}
           price={item.price}  
           description={item.description}

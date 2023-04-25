@@ -4,4 +4,5 @@ export interface ItemI {
     description: string;
     price: number;
     imagePaths: string[];
+    product_id? : string;
 }
