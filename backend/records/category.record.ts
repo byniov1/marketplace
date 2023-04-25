@@ -1,3 +1,4 @@
+import { log } from "console";
 import { CategoryEntity, NewCategoryEntity, CategoriesRecordResult } from "../types";
 import { pool } from "../utils/db";
 import { ValidationError } from "../utils/errors";
@@ -17,16 +18,25 @@ export class CategoryRecord implements CategoryEntity {
         this.name = obj.name
     }
 
-    static async findAll(): Promise<CategoryEntity[] | null>{
+    static async findAllCategories(): Promise<CategoryEntity[] | null>{
         const [results] = await pool.execute("SELECT * FROM Categories") as CategoriesRecordResult;
         return results
     }
 
-    static async findOne(name: string) {
+    static async findOneCategory(name: string) {
         const [results] = await pool.execute("SELECT * FROM Products JOIN Categories ON Products.category_id = Categories.id WHERE Categories.name = :name", {
             name
         })
 
+        return results
+    }
+
+    static async findOneItem(id: string) {
+        const [results] = await pool.execute("SELECT * FROM Products WHERE product_id = :id", {
+            id
+        })
+        console.log(results);
+        
         return results
     }
 

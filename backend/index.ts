@@ -5,6 +5,7 @@ import { ValidationError, handleError } from './utils/errors';
 import { rateLimit } from 'express-rate-limit';
 import { adRouter } from './router/ad.router';
 import { CategoryRouter } from './router/category.router';
+import { ProductRouter } from './router/product.router';
 
 
 const app = express();
@@ -28,6 +29,7 @@ router.use('/ad', adRouter);
 
 // app.use('/ad', adRouter);
 app.use('/cat', CategoryRouter)
+app.use('/product', ProductRouter)
 app.use('/api', router);
 
 app.use(handleError)
