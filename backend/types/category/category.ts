@@ -19,12 +19,20 @@ export interface CategoryEntityExtended extends CategoryEntity {
     to: string;
 }
 
-export interface ItemEntity {
+export enum PRODUCT_CONDITION {
+    NOWE = 'Nowe',
+    UŻYWANE = 'Używane'
+}
+
+export interface ProductEntity {
     product_id? : string;
     product_name: string;
     description: string;
     price: number;
+    city_name: string;
     pictures: string[];
+    created_at: Date;
+    product_condition: PRODUCT_CONDITION;
 }
 
-export interface ItemEntitySimplified extends Omit<ItemEntity, 'description'> {}
+export interface ItemEntitySimplified extends Omit<ProductEntity, 'description'> {}
