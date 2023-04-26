@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import styles from './Item.module.scss'
 import { useParams } from 'react-router-dom';
 import { fetchProduct } from 'src/utility';
-import { ItemEntity } from 'types';
+import { ProductEntity } from 'types';
 
 export function Item() {
-  const [product, setProduct] = useState<ItemEntity[] | null>(null)
+  const [product, setProduct] = useState<ProductEntity[] | null>(null)
   const {product_id} = useParams()
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export function Item() {
       
       {/* Karuzela */}
       <div className={`${styles.carousel} ${styles.whiteBackground}`}>
-        <img className = {styles.carousel__image} src={'https://ireland.apollo.olxcdn.com/v1/files/hpo734e1ubc02-PL/image;s=1000x700'} alt="fdafds" />
+        <img className = {styles.carousel__image} src={product[0].pictures[0]} alt="fdafds" />
       </div>
       
       {/* Opis */}

@@ -11,8 +11,6 @@ export function Category() {
 
   useEffect(() => {
     fetchProducts(setItems,category);
-    // console.log(items);
-    
   }, [])
 
   if(items.length === 0){
