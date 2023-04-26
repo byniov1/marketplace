@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { CategoryEntityExtended } from 'types';
 
-import styles from './MainCategoryItem.module.scss'
+import styles from './MainCategoriesItem.module.scss'
 
-export function MainCategoryItem({name, picture, to}: CategoryEntityExtended) {
+export function MainCategoriesItem({name, picture, to}: CategoryEntityExtended) {
 
   return (
     <Link to = {`http://localhost:9000/${to}`} >

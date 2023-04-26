@@ -1,13 +1,12 @@
-import { MainCategoryItem } from './MainCategoryItem'
 import { useEffect, useState } from 'react'
-import { CategoryEntity } from 'types'
+import { MainCategoriesItem } from './MainCategoriesItem';
+import { CategoryEntityExtended } from 'types'
 
-import styles from './MainCategory.module.scss'
 import { fetchCategories } from 'src/utility/fetch';
+import styles from './MainCategories.module.scss'
 
 
-
-export function MainCategory() {  
+export function MainCategories() {  
   const [categories, setCategories] = useState([])
 
   useEffect(() => {    
@@ -24,7 +23,7 @@ export function MainCategory() {
       <ul className={styles.main__category}>
         {
           categories.map((category: CategoryEntityExtended) => (
-            <MainCategoryItem 
+            <MainCategoriesItem 
               key={category.id}
               name={category.name}
               to={category.name}
