@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
-import styles from './Item.module.scss'
 import { useParams } from 'react-router-dom';
+
 import { fetchProduct } from 'src/utility';
 import { ProductEntity } from 'types';
 
-export function Item() {
+import styles from './Product.module.scss'
+
+export function Product() {
   const [product, setProduct] = useState<ProductEntity[] | null>(null)
   const {product_id} = useParams()
 
