@@ -5,10 +5,7 @@ import { CategoryEntity } from 'types'
 import styles from './MainCategory.module.scss'
 import { fetchCategories } from 'src/utility/fetch';
 
-export interface CategoryEntityExtended extends CategoryEntity {
-  to: string;
-  imagePath: string;
-}
+
 
 export function MainCategory() {  
   const [categories, setCategories] = useState([])
@@ -26,13 +23,12 @@ export function MainCategory() {
       <h1 className={styles.main__title}>Kategorie głowne</h1>
       <ul className={styles.main__category}>
         {
-          categories.map( (category: CategoryEntityExtended) => (
+          categories.map((category: CategoryEntityExtended) => (
             <MainCategoryItem 
               key={category.id}
               name={category.name}
               to={category.name}
-              imagePath='https://categories.olxcdn.com/assets/categories/olxpl/motoryzacja-5-2x.png' 
-              id={''}
+              picture={category.picture} 
             />
           ))
         }

@@ -1,11 +1,10 @@
 
-import { Item } from 'src/components/pages/Product'
-import styles from './Homepage.module.scss'
-
-import { items } from 'src/utility'
-import { Category } from 'src/components/pages/Category'
 import { Route, Routes } from 'react-router-dom'
+import { Item } from 'src/components/pages/Product'
+import { Category } from 'src/components/pages/Category'
 import { Header, MainCategory } from 'src/components/layout'
+
+import styles from './Homepage.module.scss'
 
 export const HomePage = () => {
   return (

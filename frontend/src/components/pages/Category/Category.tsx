@@ -2,14 +2,14 @@ import {ItemI, items} from 'src/utility'
 import { CategoryItem } from './CategoryItem'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { fetchCategories } from 'src/utility/fetch';
+import { fetchProducts } from 'src/utility/fetch';
 
 export function Category() {
   const [items, setItems] = useState([]);
   const {category} = useParams()
 
   useEffect(() => {
-    fetchCategories(setItems,category);
+    fetchProducts(setItems,category);
   }, [])
 
   if(items.length === 0){
