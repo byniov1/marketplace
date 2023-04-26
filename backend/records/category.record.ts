@@ -26,7 +26,7 @@ export class CategoryRecord implements CategoryEntity {
 
 
     static async findCategory(name: string) {
-        const [results] = await pool.execute("SELECT id, name, pictures, price FROM Products JOIN Categories ON Products.category_id = Categories.id WHERE Categories.name = :name", {
+        const [results] = await pool.execute("SELECT product_id, name, pictures, price FROM Products JOIN Categories ON Products.category_id = Categories.id WHERE Categories.name = :name", {
             name
         })
         return results
