@@ -24,7 +24,7 @@ export interface ItemEntity {
     product_name: string;
     description: string;
     price: number;
-    photos: string[];
+    pictures: string[];
 }
 
 export interface ItemEntitySimplified extends Omit<ItemEntity, 'description'> {}
