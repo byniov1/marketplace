@@ -9,6 +9,6 @@ export const CategoryRouter = Router()
     })
 
     .get('/:name', async(req, res) => {
-        const category = await CategoryRecord.findOneCategory(req.params.name)
+        const category = await CategoryRecord.findCategory(req.params.name)
         res.json(category)
     })
