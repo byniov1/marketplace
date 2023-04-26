@@ -5,6 +5,7 @@ import { fetchProduct } from 'src/utility';
 import { ProductEntity } from 'types';
 
 import styles from './Product.module.scss'
+import { Carousel } from './Carousel';
 
 export function Product() {
   const [product, setProduct] = useState<ProductEntity[] | null>(null)
@@ -21,14 +22,19 @@ export function Product() {
 
 
   return (
-    <div className= {styles.item}>
+    <div className= {styles.item} style={{ maxWidth: 1200, marginLeft: 'auto', marginRight: 'auto', marginTop: 64 }}>
       <h1>Item</h1>
       <hr />
       
       {/* Karuzela */}
-      <div className={`${styles.carousel} ${styles.whiteBackground}`}>
+      <Carousel>
         <img className = {styles.carousel__image} src={product[0].pictures[0]} alt="fdafds" />
-      </div>
+        <img className = {styles.carousel__image} src={product[0].pictures[1]} alt="fdafds" />
+        <img className = {styles.carousel__image} src={product[0].pictures[2]} alt="fdafds" />
+      </Carousel>
+
+      {/* <div className={`${styles.carousel} ${styles.whiteBackground}`}>
+      </div> */}
       
       {/* Opis */}
       <div className={`${styles.information} ${styles.whiteBackground}`}>
