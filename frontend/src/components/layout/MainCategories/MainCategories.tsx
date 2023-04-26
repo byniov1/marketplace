@@ -25,8 +25,8 @@ export function MainCategories() {
           categories.map((category: CategoryEntityExtended) => (
             <MainCategoriesItem 
               key={category.id}
-              name={category.name}
-              to={category.name}
+              category_name={category.category_name}
+              to={category.category_name}
               picture={category.picture} 
             />
           ))

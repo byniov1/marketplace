@@ -4,6 +4,8 @@ export const fetchCategories = async (functionToSaveData: React.Dispatch<React.S
     // console.log('http://localhost:9001/cat');
     const response = await fetch(`http://localhost:9001/cat/${category}`)
     let data = await response.json()
+    // console.log(data);
+    
     
     functionToSaveData(data)
 }
@@ -15,7 +17,7 @@ export const fetchProducts = async (functionToSaveData: React.Dispatch<React.Set
     
     data = Object.values(data)
     data.map((item:any) => item.pictures = item.pictures.split(','))
-    // console.log(data);
+    console.log(data);
     
     
     functionToSaveData(data)
