@@ -2,17 +2,10 @@ import { useEffect, useState } from 'react';
 import styles from './Item.module.scss'
 import { useParams } from 'react-router-dom';
 import { fetchProduct } from 'src/utility';
-
-//@TODO pamiętać że taki sam interfejs jest w fetch
-export interface ItemI {
-  id?: string
-  product_name: string;
-  description: string;
-  price: number;
-}
+import { ItemEntity } from 'types';
 
 export function Item() {
-  const [product, setProduct] = useState<ItemI[] | null>(null)
+  const [product, setProduct] = useState<ItemEntity[] | null>(null)
   const {product_id} = useParams()
 
   useEffect(() => {

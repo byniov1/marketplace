@@ -1,8 +1,9 @@
-import {ItemI, items} from 'src/utility'
+
 import { CategoryItem } from './CategoryItem'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { fetchProducts } from 'src/utility/fetch';
+import { ItemEntitySimplified } from 'types';
 
 export function Category() {
   const [items, setItems] = useState([]);
@@ -10,6 +11,8 @@ export function Category() {
 
   useEffect(() => {
     fetchProducts(setItems,category);
+    // console.log(items);
+    
   }, [])
 
   if(items.length === 0){
@@ -19,14 +22,13 @@ export function Category() {
   return (
     <div>
       {
-        items.map( (item : ItemI)=> (
+        items.map( (item : ItemEntitySimplified)=> (
         <CategoryItem 
           key = {item.product_id}
           product_id = {item.product_id}
           product_name={item.product_name}
           price={item.price}  
-          description={item.description}
-          imagePaths={['https://ireland.apollo.olxcdn.com/v1/files/hpo734e1ubc02-PL/image;s=1000x700']} 
+          pictures={item.pictures} 
         />
         )
       )}  
