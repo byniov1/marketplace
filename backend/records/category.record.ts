@@ -3,11 +3,11 @@ import { CategoryEntity, NewCategoryEntity, CategoriesRecordResult } from "../ty
 import { pool } from "../utils/db";
 import { ValidationError } from "../utils/errors";
 
-// import {CategoryEntity} from '../types'
 
 export class CategoryRecord implements CategoryEntity {
     public id: string;
     public name: string;
+    public picture: string
 
     constructor(obj: NewCategoryEntity){
         if(!obj.name || obj.name.length > 100){
@@ -16,10 +16,11 @@ export class CategoryRecord implements CategoryEntity {
 
         this.id = obj.id;
         this.name = obj.name
+        this.picture = obj.picture
     }
 
-    static async findAllCategories(): Promise<CategoryEntity[] | null>{
-        const [results] = await pool.execute("SELECT * FROM Categories") as CategoriesRecordResult;
+    static async findAllCategories() {
+        const [results] = await pool.execute("SELECT * FROM Categories");
         return results
     }
 
@@ -27,7 +28,6 @@ export class CategoryRecord implements CategoryEntity {
         const [results] = await pool.execute("SELECT * FROM Products JOIN Categories ON Products.category_id = Categories.id WHERE Categories.name = :name", {
             name
         })
-
         return results
     }
 
