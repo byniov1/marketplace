@@ -12,7 +12,6 @@ export const Carousel = (props: any) => {
   }, [children])
 
   const next = () => {
-    console.log('next', currentIndex+1, length);
     if (currentIndex < (length - 1)) {
         setCurrentIndex(prevState => prevState + 1)
       }
@@ -23,8 +22,6 @@ export const Carousel = (props: any) => {
 }
 
 const prev = () => {
-  console.log('prev', currentIndex+1, length);
-  
     if (currentIndex > 0) {
         setCurrentIndex(prevState => prevState - 1)
     }
