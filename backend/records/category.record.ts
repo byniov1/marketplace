@@ -6,16 +6,16 @@ import { ValidationError } from "../utils/errors";
 
 export class CategoryRecord implements CategoryEntity {
     public id: string;
-    public name: string;
+    public category_name: string;
     public picture: string
 
     constructor(obj: NewCategoryEntity){
-        if(!obj.name || obj.name.length > 100){
+        if(!obj.category_name || obj.category_name.length > 100){
             throw new ValidationError('Category name cannot be longer than 100 characters');
         }
 
         this.id = obj.id;
-        this.name = obj.name
+        this.category_name = obj.category_name
         this.picture = obj.picture
     }
 
@@ -27,10 +27,9 @@ export class CategoryRecord implements CategoryEntity {
 
     static async findCategory(name: string) {
         const [results] = await pool.execute(`
-            SELECT Products.product_id, Products.product_name, Products.product_condition, Products.created_at, Products.pictures, Products.price, Cities.city_name FROM Products 
-            JOIN Categories ON Products.category_id = Categories.id 
-            JOIN Cities ON Products.city_id = Cities.id 
-            WHERE Categories.name = :name`, {
+            SELECT product_id, product_name, product_condition, created_at, pictures, price, city_name FROM Products 
+            JOIN Categories ON Products.category_name = Categories.category_name 
+            WHERE Categories.category_name = :name`, {
             name
         })
         

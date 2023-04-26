@@ -2,7 +2,7 @@ import { FieldPacket } from "mysql2";
 
 export interface CategoryEntity {
     id?: string;
-    name: string;
+    category_name: string;
     picture: string
 }
 
