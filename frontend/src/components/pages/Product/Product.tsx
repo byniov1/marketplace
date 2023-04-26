@@ -26,15 +26,14 @@ export function Product() {
       <h1>Item</h1>
       <hr />
       
-      {/* Karuzela */}
       <Carousel>
-        <img className = {styles.carousel__image} src={product[0].pictures[0]} alt="fdafds" />
-        <img className = {styles.carousel__image} src={product[0].pictures[1]} alt="fdafds" />
-        <img className = {styles.carousel__image} src={product[0].pictures[2]} alt="fdafds" />
+        {
+          product[0].pictures.map(imagePath => (
+            <img key = {imagePath} src={imagePath} alt={imagePath} />
+          ))
+        }
       </Carousel>
 
-      {/* <div className={`${styles.carousel} ${styles.whiteBackground}`}>
-      </div> */}
       
       {/* Opis */}
       <div className={`${styles.information} ${styles.whiteBackground}`}>
