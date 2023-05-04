@@ -12,7 +12,6 @@ export function Product() {
   const {product_id} = useParams()
 
   useEffect(() => {
-    console.log('UseEffect Item');
     fetchProduct(setProduct, product_id);
   }, [])
 

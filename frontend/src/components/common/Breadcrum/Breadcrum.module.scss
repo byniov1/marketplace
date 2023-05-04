@@ -1,0 +1,8 @@
+.breadcrum{
+    display: flex;
+    border: 1px solid red;
+}
+
+.breadcrum li, .breadcrum span {
+    padding: 0 5px;
+}

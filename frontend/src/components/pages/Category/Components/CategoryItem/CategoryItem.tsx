@@ -1,15 +1,17 @@
 
-import { ItemEntitySimplified } from 'types';
+import { ProductEntitySimplified } from 'types';
 import styles from './CategoryItem.module.scss'
 import { Link } from "react-router-dom";
 
-export function CategoryItem({pictures, product_name, price, product_id, city_name, created_at, product_condition}: ItemEntitySimplified) {  
+export function CategoryItem({default_picture, product_name, price, product_id, city_name, created_at, product_condition}: ProductEntitySimplified) {  
   const convertedData  = new Date(created_at).toDateString() 
+  // console.log('Component Category item', pictures);
   
   return (
-    <Link to = {`http://localhost:9000/product/${product_id}`} >
+    <Link to = {`http://localhost:9000/Product/${product_id}`} >
       <div className= {`${styles.whiteBackground} ${styles.item}`}>
-        <img className = {styles.item__image} src={pictures[0]} alt="" />
+        {/* <img className = {styles.item__image} src={pictures[0]} alt="" /> */}
+        <img className = {styles.item__image} src={default_picture} alt="" />
         
         
         <div className={styles.information}>
