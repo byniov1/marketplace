@@ -7,8 +7,8 @@ import { adRouter } from './router/ad.router';
 import { CategoryRouter } from './router/category.router';
 import { ProductRouter } from './router/product.router';
 
-
 const app = express();
+
 
 app.use(cors({
     origin: 'http://localhost:9000'
@@ -23,14 +23,12 @@ app.get('/', async (req: Request,res: Response) => {
     res.send('Express + TypeScript Server' )
 });
 
-const router = Router();
-
-router.use('/ad', adRouter);
-
-// app.use('/ad', adRouter);
-app.use('/cat', CategoryRouter)
+app.use('/category', CategoryRouter)
 app.use('/product', ProductRouter)
-app.use('/api', router);
+
+// const router = Router();
+// app.use('/api', router);
+// router.use('/ad', adRouter);
 
 app.use(handleError)
 

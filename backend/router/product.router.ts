@@ -1,9 +1,11 @@
 import { Router } from "express";
-import { CategoryRecord } from "../records/category.record";
+import { ProductRecord } from "../records/product.router";
 
 export const ProductRouter = Router()
 
     .get('/:id', async(req, res) => {
-        const category = await CategoryRecord.findOneItem(req.params.id)
+        const category = await ProductRecord.findOneItem(req.params.id)
         res.json(category)
     })
+
+    

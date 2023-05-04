@@ -1,7 +1,7 @@
 import { FieldPacket } from "mysql2";
 
 export interface CategoryEntity {
-    id?: string;
+    category_id?: string;
     category_name: string;
     picture: string
 }
@@ -16,7 +16,7 @@ export type CategoriesRecordResult = [CategoryEntity[], FieldPacket[]]
 
 //FE
 export interface CategoryEntityExtended extends CategoryEntity {
-    to: string;
+    subcategories: any;
 }
 
 export enum PRODUCT_CONDITION {
@@ -24,7 +24,8 @@ export enum PRODUCT_CONDITION {
     UŻYWANE = 'Używane'
 }
 
-export interface ProductEntity {
+
+export interface ProductEntity{
     product_id? : string;
     product_name: string;
     description: string;
@@ -35,4 +36,8 @@ export interface ProductEntity {
     product_condition: PRODUCT_CONDITION;
 }
 
-export interface ItemEntitySimplified extends Omit<ProductEntity, 'description'> {}
+export interface ProductEntitySimplified extends Omit<ProductEntity, 'description' | 'pictures'> {
+    default_picture: string;
+}
+
+// export interface ItemEntitySimplified extends Omit<ProductEntity, 'description'> {}
